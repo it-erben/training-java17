@@ -1,0 +1,124 @@
+body {
+    font-family: "Inter", sans-serif;
+    margin: 2rem;
+    background-color: #f2f4f8;
+    color: #102a43;
+}
+
+h1 {
+    color: #243b53;
+    margin-bottom: 1.5rem;
+}
+
+.summary ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.summary li {
+    background: #e0e8f9;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.card header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: #fff;
+}
+
+.badge-open {
+    background-color: #6366f1;
+}
+
+.badge-active {
+    background-color: #0ea5e9;
+}
+
+.badge-success {
+    background-color: #10b981;
+}
+
+.badge-warning {
+    background-color: #f97316;
+}
+
+.badge-cancelled {
+    background-color: #94a3b8;
+}
+
+.card-delayed {
+    border: 2px solid #f97316;
+}
+
+.card-cancelled {
+    border: 2px dashed #94a3b8;
+    opacity: 0.75;
+}
+
+.card-vip {
+    border: 2px solid #10b981;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.3rem 1rem;
+    font-size: 0.95rem;
+}
+
+dl dt {
+    font-weight: 600;
+}
+
+dl dd {
+    margin: 0;
+}
+
+.events ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.events li {
+    margin-bottom: 0.4rem;
+}
+
+.eta {
+    font-weight: 600;
+}
+
+.zone {
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+ol {
+    padding-left: 1.4rem;
+}

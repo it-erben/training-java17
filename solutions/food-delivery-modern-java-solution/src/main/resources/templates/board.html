@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Delivery Board – Lösung</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main>
+    <h1>Food Delivery Board – Lösung</h1>
+    <p>Die Lösung ergänzt Status-Zusammenfassungen, sortierte Lieferungen und zusätzliche Pattern-Matching-Ereignisse.</p>
+
+    <section class="summary">
+        <h2>Status-Übersicht</h2>
+        <ul>
+            <li th:each="entry : ${summary.entrySet()}"
+                th:text="${entry.key()} + ': ' + entry.value()">Status: Anzahl</li>
+        </ul>
+    </section>
+
+    <section class="grid">
+        <article th:each="delivery : ${deliveries}"
+                 class="card"
+                 th:classappend="' ' + ${board.highlightClass(delivery)}">
+            <header>
+                <h2 th:text="${delivery.id()}">FD-0000</h2>
+                <span class="badge"
+                      th:classappend="' ' + ${board.statusBadge(delivery.status())}"
+                      th:text="${delivery.status()}">ON_THE_WAY</span>
+            </header>
+
+            <p class="eta" th:text="${board.etaMessage(delivery)}">Status</p>
+            <p class="zone">Zone: <span th:text="${board.zoneByDistance(delivery.distanceKm())}">Zone A</span></p>
+
+            <dl>
+                <div>
+                    <dt>Kund:in</dt>
+                    <dd th:text="${delivery.order().customer().name()}">Name</dd>
+                </div>
+                <div>
+                    <dt>Restaurant</dt>
+                    <dd>
+                        <span th:text="${delivery.order().restaurant().name()}">Restaurant</span>
+                        (<span th:text="${delivery.order().restaurant().cityDistrict()}">Bezirk</span>)
+                    </dd>
+                </div>
+                <div>
+                    <dt>Warenkorb</dt>
+                    <dd>
+                        <ul>
+                            <li th:each="item : ${delivery.order().items()}" th:text="${item}">Item</li>
+                        </ul>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Kurier</dt>
+                    <dd>
+                        <span th:text="${board.vehicleEmoji(delivery.courier())}">🚴</span>
+                        <span th:text="${delivery.courier().name()}">Courier</span>
+                        – Rating <span th:text="${delivery.courier().rating()}">4.9</span>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Bestellwert</dt>
+                    <dd th:text="${#numbers.formatDecimal(delivery.order().totalAmount(), 2, 'COMMA', 2, 'POINT')} + ' €'">0,00 €</dd>
+                </div>
+                <div>
+                    <dt>Entfernung</dt>
+                    <dd th:text="${delivery.distanceKm()} + ' km'">0 km</dd>
+                </div>
+            </dl>
+
+            <section class="events">
+                <h3>Timeline</h3>
+                <ul>
+                    <li th:each="event : ${delivery.timeline()}"
+                        th:text="${board.narrative(event)}">Ereignis</li>
+                </ul>
+            </section>
+        </article>
+    </section>
+
+    <section>
+        <h2>Nach ETA sortiert</h2>
+        <ol>
+            <li th:each="delivery : ${sortedDeliveries}">
+                <span th:text="${delivery.id()}">FD-0000</span>
+                – <span th:text="${delivery.estimatedArrival().toMinutes()} + ' min'">0</span>
+                – <span th:text="${delivery.order().customer().name()}">Name</span>
+            </li>
+        </ol>
+    </section>
+</main>
+</body>
+</html>

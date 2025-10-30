@@ -1,0 +1,27 @@
+body {
+    font-family: "Inter", sans-serif;
+    margin: 2rem;
+    background-color: #f5f7fb;
+    color: #102a43;
+}
+
+h1 {
+    color: #334e68;
+}
+
+.svg-container {
+    border: 1px solid #bcccdc;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+section ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+svg {
+    width: 100%;
+    height: auto;
+}

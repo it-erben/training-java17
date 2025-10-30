@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Helpdesk SVG Board</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main>
+    <h1>Helpdesk Statusboard</h1>
+    <p>Die SVG-Grafik wird mit Apache Batik erzeugt – aktuell führt ein Fehler beim Rendering zu NullPointerExceptions.
+        Untersuche die Fehlermeldungen, behebe die Ursachen und beobachte, wie hilfreich die neuen NPE-Meldungen sind.</p>
+
+    <div class="svg-container" th:utext="${svgMarkup}"></div>
+
+    <section>
+        <h2>Ticket-Details (Debug)</h2>
+        <ul>
+            <li th:each="ticket : ${tickets}">
+                <strong th:text="${ticket.id()}">HD-000</strong>
+                – <span th:text="${ticket.summary().toUpperCase()}">BETREFF</span>
+                – Fortschritt: <span th:text="${ticket.progress() * 100}"></span>%
+                – Farbe: <span th:text="${ticket.assignee().primaryColor().toLowerCase()}"></span>
+            </li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>

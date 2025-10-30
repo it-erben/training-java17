@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>tech.erben</groupId>
+        <artifactId>java17-course</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>tech.erben</groupId>
+    <artifactId>assignments</artifactId>
+    <packaging>pom</packaging>
+    <name>Assignments</name>
+
+    <modules>
+        <module>records-car-dealership</module>
+        <module>text-blocks-barbershop</module>
+        <module>food-delivery-modern-java</module>
+        <module>sealed-classes-insurance</module>
+        <module>enhanced-npe-helpdesk</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

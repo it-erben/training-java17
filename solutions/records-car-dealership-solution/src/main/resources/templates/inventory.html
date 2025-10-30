@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Inventory (Records)</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main>
+    <h1>Car Inventory – Record-Lösung</h1>
+    <p>Alle Domänenobjekte liegen als Records vor. Rabatte, Leasing-Angebote und Probefahrten werden ohne Seiteneffekte berechnet.</p>
+
+    <section>
+        <h2>Fahrzeuge</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>VIN</th>
+                <th>Modell</th>
+                <th>Erstzulassung</th>
+                <th>Preis</th>
+                <th>Antrieb</th>
+                <th>Berater:in</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="car : ${cars}">
+                <td th:text="${car.vin()}">VIN</td>
+                <td>
+                    <strong th:text="${car.label()}">Label</strong>
+                    <ul th:if="${!car.notes().isEmpty()}">
+                        <li th:each="note : ${car.notes()}" th:text="${note}">Hinweis</li>
+                    </ul>
+                </td>
+                <td th:text="${car.firstRegistration()}">2023-01-01</td>
+                <td th:text="${#numbers.formatDecimal(car.price(), 2, 'COMMA', 2, 'POINT')}">0,00</td>
+                <td th:text="${car.energyType()}">BEV</td>
+                <td th:text="${car.consultant().name()}">Berater:in</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Rabattvorschau</h2>
+        <form method="get">
+            <label for="vin">VIN</label>
+            <input id="vin" name="vin" type="text" placeholder="WVWZZZ..." required>
+            <label for="discount">Rabattfaktor (z.&nbsp;B. 0.10)</label>
+            <input id="discount" name="discount" type="number" step="0.01" min="0" max="0.60" required>
+            <button type="submit">Rabatt berechnen</button>
+        </form>
+
+        <div th:if="${discountedCar != null}">
+            <p><strong th:text="${discountedCar.label()}">Modell</strong></p>
+            <p>Neuer Preis:
+                <span th:text="${#numbers.formatDecimal(discountedCar.price(), 2, 'COMMA', 2, 'POINT')}">0,00</span> €
+            </p>
+            <p>Hinweise:
+                <span th:each="note,iter : ${discountedCar.notes()}"
+                      th:text="${note}"
+                      th:unless="${iter.last}">Hinweis</span>
+            </p>
+        </div>
+
+        <section>
+            <h3>Rabatt-Historie</h3>
+            <ul>
+                <li th:each="entry : ${discountMemory.entrySet()}"
+                    th:text="${entry.key + ' → ' + entry.value}">VIN → Faktor</li>
+            </ul>
+            <p th:if="${discountMemory.isEmpty()}">Noch keine Rabatte berechnet.</p>
+        </section>
+    </section>
+
+    <section>
+        <h2>Leasing-Angebote</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Angebot</th>
+                <th>Kund:in</th>
+                <th>Fahrzeug</th>
+                <th>Monatsrate</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="offer : ${leasingOffers}">
+                <td th:text="${offer.offerId()}">ID</td>
+                <td th:text="${offer.customer().name()}">Name</td>
+                <td th:text="${offer.car().label()}">Fahrzeug</td>
+                <td th:text="${#numbers.formatDecimal(offer.monthlyRate(), 2, 'COMMA', 2, 'POINT')}">0,00</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Probefahrten</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Kund:in</th>
+                <th>Fahrzeug</th>
+                <th>Slot</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="booking : ${testDriveBookings}">
+                <td th:text="${booking.customer().name()}">Name</td>
+                <td th:text="${booking.car().label()}">Fahrzeug</td>
+                <td th:text="${#temporals.format(booking.slot(), 'dd.MM.yyyy HH:mm')}">Datum</td>
+                <td th:text="${booking.status()}">Status</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>

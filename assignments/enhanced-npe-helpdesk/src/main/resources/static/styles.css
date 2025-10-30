@@ -1,0 +1,22 @@
+body {
+    font-family: "Inter", sans-serif;
+    margin: 2rem;
+    background-color: #f5f7fb;
+    color: #102a43;
+}
+
+h1 {
+    color: #334e68;
+}
+
+.svg-container {
+    border: 1px dashed #829ab1;
+    padding: 1rem;
+    background-color: #fff;
+    margin-top: 1.5rem;
+}
+
+svg {
+    width: 100%;
+    height: auto;
+}

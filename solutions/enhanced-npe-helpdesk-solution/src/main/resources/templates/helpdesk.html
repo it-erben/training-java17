@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Helpdesk SVG – Lösung</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main>
+    <h1>Helpdesk SVG – Nullsichere Lösung</h1>
+    <p>Die SVG wird serverseitig mit Apache Batik erzeugt. Die Lösung behandelt fehlende Daten robust und liefert
+        dennoch lesbare Informationen.</p>
+
+    <div class="svg-container" th:utext="${svgMarkup}"></div>
+
+    <section>
+        <h2>Datenbasis</h2>
+        <ul>
+            <li th:each="ticket : ${tickets}">
+                <strong th:text="${ticket.id()}">HD-000</strong>
+                – <span th:text="${ticket.summary() != null ? ticket.summary().toUpperCase() : 'KEIN BETREFF'}"></span>
+                – Fortschritt:
+                <span th:text="${ticket.progress() != null ? ticket.progress() * 100 : 0}"></span>%
+                – Farbe:
+                <span th:text="${ticket.assignee() != null && ticket.assignee().primaryColor() != null
+                        ? ticket.assignee().primaryColor().toLowerCase()
+                        : 'kein Farbcode'}"></span>
+            </li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>

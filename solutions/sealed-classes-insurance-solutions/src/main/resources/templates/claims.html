@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sealed Claims Lösung</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main>
+    <h1>Schadenbewertung mit Sealed-Klassen</h1>
+    <p>Alle Schadenarten implementieren das sealed Interface <code>Claim</code>; die Bewertungen sind ebenfalls über eine sealed Hierarchie abgedeckt.</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Police</th>
+            <th>Typ</th>
+            <th>Details</th>
+            <th>Bewertung</th>
+            <th>Nächster Schritt</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="claim,stat : ${claims}">
+            <td>
+                <strong th:text="${claim.policyNumber()}">Police</strong>
+                <div th:text="${#temporals.format(claim.reportedAt(), 'dd.MM.yyyy')}">Datum</div>
+                <div th:text="${#numbers.formatDecimal(claim.amount(), 2, 'COMMA', 2, 'POINT')} + ' €'">0,00 €</div>
+            </td>
+            <td th:text="${claim.type()}">Typ</td>
+            <td>
+                <div th:switch="${claim.getClass()}">
+                    <div th:case="${T(tech.erben.java17.sealedclasses.solutions.model.MotorClaim)}">
+                        <p>Kfz-Schaden: <span th:text="${claim.damageDescription()}">Beschreibung</span></p>
+                        <p>Schwere: <span th:text="${claim.severity()}">MINOR</span>,
+                            Fahrbereit: <span th:text="${claim.drivable() ? 'Ja' : 'Nein'}">Ja</span></p>
+                    </div>
+                    <div th:case="${T(tech.erben.java17.sealedclasses.solutions.model.HealthClaim)}">
+                        <p>Diagnose: <span th:text="${claim.diagnosis()}">Diagnose</span></p>
+                        <p>Behandlung: <span th:text="${claim.treatmentType()}">ART</span>,
+                            Stationär: <span th:text="${claim.inpatient() ? 'Ja' : 'Nein'}">Nein</span></p>
+                    </div>
+                    <div th:case="${T(tech.erben.java17.sealedclasses.solutions.model.TravelClaim)}">
+                        <p>Reiseziel: <span th:text="${claim.destinationCountry()}">Land</span></p>
+                        <p>Ereignis: <span th:text="${claim.incidentType()}">Typ</span>,
+                            Unterlagen: <span th:text="${claim.documentationComplete() ? 'vollständig' : 'fehlt'}">vollständig</span></p>
+                    </div>
+                    <div th:case="${T(tech.erben.java17.sealedclasses.solutions.model.HomeClaim)}">
+                        <p>Objekt: <span th:text="${claim.propertyType()}">Objekt</span></p>
+                        <p>Ursache: <span th:text="${claim.cause()}">Ursache</span>,
+                            Notdienst: <span th:text="${claim.emergencyResponseRequired() ? 'Ja' : 'Nein'}">Nein</span></p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div th:with="assessment=${assessments[stat.index]}">
+                    <div th:switch="${assessment.getClass()}">
+                        <div th:case="${T(tech.erben.java17.sealedclasses.solutions.model.Assessment.ApprovedAssessment)}">
+                            <p th:text="${assessment.summary()}">Zusammenfassung</p>
+                            <p>Auszahlung:
+                                <strong th:text="${#numbers.formatDecimal(assessment.payout(), 2, 'COMMA', 2, 'POINT')} + ' €'">0,00 €</strong>
+                            </p>
+                        </div>
+                        <div th:case="${T(tech.erben.java17.sealedclasses.solutions.model.Assessment.ManualReviewAssessment)}">
+                            <p th:text="${assessment.summary()}">Zusammenfassung</p>
+                            <p>Team: <strong th:text="${assessment.specialistTeam()}">Team</strong></p>
+                        </div>
+                        <div th:case="${T(tech.erben.java17.sealedclasses.solutions.model.Assessment.DeclinedAssessment)}">
+                            <p th:text="${assessment.summary()}">Zusammenfassung</p>
+                            <p>Grundcode: <strong th:text="${assessment.reasonCode()}">Code</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <span th:text="${engine.nextStep(assessments[stat.index])}">Aktion</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

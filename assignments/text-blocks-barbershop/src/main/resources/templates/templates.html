@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cut &amp; Shave Textbausteine</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main>
+    <h1>Text Blocks in Aktion</h1>
+    <p>Hier siehst du zwei Beispiele, wie Text Blocks in der Termin-Kommunikation helfen.</p>
+
+    <section>
+        <h2>Terminbestätigung</h2>
+        <pre th:text="${confirmationText}"></pre>
+    </section>
+
+    <section>
+        <h2>Wochenübersicht</h2>
+        <pre th:text="${overview}"></pre>
+    </section>
+
+    <section>
+        <h2>Klassischer String vs. Text Block</h2>
+        <p>Identisch? <strong th:text="${showcase.areEqual()} ? 'Ja' : 'Nein'">Ja</strong></p>
+        <div class="two-columns">
+            <article>
+                <h3>Klassischer String</h3>
+                <pre th:text="${showcase.classicLiteral()}"></pre>
+            </article>
+            <article>
+                <h3>Text Block</h3>
+                <pre th:text="${showcase.textBlockLiteral()}"></pre>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>SQL mit <code>stripIndent()</code></h2>
+        <div class="two-columns">
+            <article>
+                <h3>Original</h3>
+                <pre th:text="${showcase.rawSql()}"></pre>
+            </article>
+            <article>
+                <h3>Bereinigt</h3>
+                <pre th:text="${showcase.normalizedSql()}"></pre>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>JSON Payload</h2>
+        <pre th:text="${showcase.jsonPayload()}"></pre>
+    </section>
+
+    <section>
+        <h2>HTML-Snippet mit <code>formatted()</code></h2>
+        <pre th:text="${showcase.htmlSnippet()}"></pre>
+    </section>
+
+    <section>
+        <h2><code>translateEscapes()</code> in Aktion</h2>
+        <div class="two-columns">
+            <article>
+                <h3>Raw</h3>
+                <pre th:text="${showcase.rawEscapes()}"></pre>
+            </article>
+            <article>
+                <h3>Übersetzt</h3>
+                <pre th:text="${showcase.translatedEscapes()}"></pre>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>Indentation</h2>
+        <pre th:text="${showcase.indentedMenu()}"></pre>
+    </section>
+
+    <section>
+        <h2>Formatierte Tabelle</h2>
+        <pre th:text="${showcase.formattedTable()}"></pre>
+    </section>
+</main>
+</body>
+</html>
