@@ -6,9 +6,9 @@ import java.util.Set;
 public record MovieRating(
     int id,
     String name,
-    Float rating,
+    Float value,
     Integer votes,
     Duration runtime,
-    Set<String> genre,
+    Set<String> genres,
     String description
 ) {}

@@ -123,7 +123,7 @@ class MovieRatingsServiceTest {
             new MovieRating(2, "Movie 2", 7.5f, 120, Duration.ofMinutes(120), Set.of("Action"), "Description 2"));
         when(mockDataset.load()).thenReturn(ratingsStream);
 
-        assertEquals(8.0f, service.getAverageRatingOfMoviesHavingGenre("Action"), "Should return the average rating of movies having the specified genre");
+        assertEquals(8.0f, service.getAverageRatingOfMoviesHavingGenre("Action"), "Should return the average value of movies having the specified genres");
     }
 
     @Test

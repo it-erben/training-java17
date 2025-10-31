@@ -1,4 +1,4 @@
-id,name,rating,votes,runtime,genre,description
+id,name,value,votes,runtime,genres,description
 0,Oppenheimer,8.4,"565,499",180 min,"['Biography, Drama, History']",['The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.']
 1,Sound of Freedom,7.7,"91,802",131 min,"['Biography, Crime, Drama']",['The incredible true story of a former government agent turned vigilante who embarks on a dangerous mission to rescue hundreds of children from traffickers.']
 2,Saltburn,7.3,"38,572",131 min,"['Comedy, Drama, Thriller']","[""A student at Oxford University finds himself drawn into the world of a charming and aristocratic classmate, who invites him to his eccentric family's sprawling estate for a summer never to be forgotten.""]"

@@ -28,10 +28,10 @@ public final class CsvBackedMovieRatingsDataset implements MovieRatingsDataset {
             String[] HEADERS = {
                 "id",
                 "name",
-                "rating",
+                "value",
                 "votes",
                 "runtime",
-                "genre",
+                "genres",
                 "description",
             };
             CSVFormat csvFormat = CSVFormat.DEFAULT
@@ -55,7 +55,7 @@ public final class CsvBackedMovieRatingsDataset implements MovieRatingsDataset {
     }
 
     private MovieRating parseRecord(CSVRecord record) {
-        float rating = safeParseFloat(record.get("rating"));
+        float rating = safeParseFloat(record.get("value"));
         int id = safeParseInt(record.get("id"));
         int votes = safeParseInt(record.get("votes").replace(",", ""));
         int runtime = safeParseInt(record.get("runtime").replace(" min", ""));
@@ -66,7 +66,7 @@ public final class CsvBackedMovieRatingsDataset implements MovieRatingsDataset {
             votes,
             Duration.ofMinutes(runtime),
             Set
-                .of(record.get("genre").replaceAll("[\\[\\]\"']", "").split(","))
+                .of(record.get("genres").replaceAll("[\\[\\]\"']", "").split(","))
                 .stream()
                 .map(String::strip)
                 .collect(Collectors.toSet()),
