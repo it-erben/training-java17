@@ -8,19 +8,21 @@ Dieses Repository bündelt alle Materialien für deinen Java‑17-Schulungstag. 
 
 Jedes Modul läuft auf einem eigenen Port (siehe jeweilige README). Alle Projekte basieren auf Spring Boot und setzen Java 17 voraus.
 
-## Assignments (Ports 9081–9085)
+## Assignments (Ports 9081–9086)
 - `assignments/records-car-dealership`: Records für ein Autohaus-Inventar.
 - `assignments/text-blocks-barbershop`: Text Blocks für Terminbestätigungen.
 - `assignments/food-delivery-modern-java`: Switch Expressions & Pattern Matching im Lieferdienst.
 - `assignments/sealed-classes-insurance`: Sealed Interfaces zur Modellierung von Schadensfällen.
 - `assignments/enhanced-npe-helpdesk`: SVG-Dashboard mit zahlreichen NullPointer-Bugs.
+- `assignments/random-generator-raffle`: RandomGenerator-APIs für kontrollierte Verlosungen und Simulationen.
 
-## Solutions (Ports 9181–9185)
+## Solutions (Ports 9181–9186)
 - `solutions/records-car-dealership-solution`: Refaktorierte Record-Lösung.
 - `solutions/text-blocks-barbershop-solution`: Erweiterte Text-Block-Beispiele (HTML, Markdown, SQL, Escapes).
 - `solutions/food-delivery-modern-java-solution`: Zusätzliche Auswertungen, Events und Zonen.
 - `solutions/sealed-classes-insurance-solutions`: Robuste Sealed-Class-Verarbeitung.
 - `solutions/enhanced-npe-helpdesk-solution`: Null-sichere SVG-Generierung ohne NPEs.
+- `solutions/random-generator-raffle-solution`: RandomGenerator-basierte Verlosung mit deterministischen Seeds.
 
 ## Live-Coding-Playground (Port 9190)
 - `trainer`: Video-Streaming-Plattform zum Experimentieren mit Records, Sessions und dem HTML5-Player.

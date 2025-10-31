@@ -22,6 +22,7 @@
         <module>sealed-classes-insurance</module>
         <module>enhanced-npe-helpdesk</module>
         <module>streams</module>
+        <module>random-generator-raffle</module>
     </modules>
 
     <build>
