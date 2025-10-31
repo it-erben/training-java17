@@ -21,7 +21,7 @@ public class MovieRatingsService {
      * @return A stream of MovieRating objects representing the movie ratings.
      */
     public Stream<MovieRating> getRatings(long limit) {
-        return ds.load().limit(limit);
+        return null;
     }
 
     /**
@@ -31,8 +31,7 @@ public class MovieRatingsService {
      * @return A stream of MovieRating objects representing the movie ratings sorted by votes.
      */
     public Stream<MovieRating> getRatingsSortedByVotes(boolean ascending) {
-        Comparator<MovieRating> comparator = Comparator.comparingInt(MovieRating::votes);
-        return ds.load().sorted(ascending ? comparator : comparator.reversed());
+        return null;
     }
 
     /**
@@ -42,7 +41,7 @@ public class MovieRatingsService {
      * @return A stream of MovieRating objects representing the movie ratings greater than or equal to the cutoff.
      */
     public Stream<MovieRating> getRatingsGreaterThan(double cutoffInclusive) {
-        return ds.load().filter(mr -> mr.rating() > cutoffInclusive);
+        return null;
     }
 
     /**
@@ -51,7 +50,7 @@ public class MovieRatingsService {
      * @return A stream of strings representing the names sorted alphabetically.
      */
     public Stream<String> getNamesSortedAlphabetically() {
-        return ds.load().map(MovieRating::name).sorted();
+        return null;
     }
 
     /**
@@ -60,7 +59,7 @@ public class MovieRatingsService {
      * @return A stream of strings representing the distinct genres.
      */
     public Stream<String> getDistinctGenres() {
-        return ds.load().flatMap(mr -> mr.genre().stream()).distinct();
+        return null;
     }
 
     /**
@@ -70,7 +69,7 @@ public class MovieRatingsService {
      * @return A stream of MovieRating objects representing the movie ratings that have all the specified genres.
      */
     public Stream<MovieRating> getMoviesHavingAllGenres(Set<String> genre) {
-        return ds.load().filter(mr -> mr.genre().containsAll(genre));
+        return null;
     }
 
     /**
@@ -79,7 +78,7 @@ public class MovieRatingsService {
      * @return The total vote count over all movie ratings.
      */
     public Long getTotalVoteCountOverAllRatings() {
-        return (long) ds.load().mapToInt(MovieRating::votes).sum();
+        return null;
     }
 
     /**
@@ -89,8 +88,7 @@ public class MovieRatingsService {
      * @return A stream of MovieRating objects representing the movie ratings sorted by duration.
      */
     public Stream<MovieRating> getMovieRatingsSortedByDuration(boolean ascending) {
-        Comparator<MovieRating> durationComparator = Comparator.comparing(MovieRating::runtime);
-        return ds.load().sorted(ascending ? durationComparator : durationComparator.reversed());
+        return null;
     }
 
     /**
@@ -100,10 +98,7 @@ public class MovieRatingsService {
      * @return The average rating of movies having the specified genre.
      */
     public Float getAverageRatingOfMoviesHavingGenre(String genre) {
-        return (float) ds.load()
-            .filter(mr -> mr.genre().contains(genre))
-            .mapToDouble(MovieRating::rating)
-            .average().orElseGet(() -> 0d);
+        return null;
     }
 
     /**
@@ -114,7 +109,7 @@ public class MovieRatingsService {
      * or an empty optional if no movie with the given name is found.
      */
     public Optional<MovieRating> findMovieWithName(String name) {
-        return ds.load().filter(mr -> mr.name().equals(name)).findAny();
+        return null;
     }
 
     /**
@@ -124,6 +119,6 @@ public class MovieRatingsService {
      * @return A stream of MovieRating objects representing the movie ratings with a duration less than the specified duration.
      */
     public Stream<MovieRating> getMoviesWithDurationLessThan(Duration duration) {
-        return ds.load().filter(mr -> mr.runtime().toMinutes() < duration.toMinutes());
+        return null;
     }
 }
