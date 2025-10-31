@@ -21,6 +21,7 @@
         <module>food-delivery-modern-java</module>
         <module>sealed-classes-insurance</module>
         <module>enhanced-npe-helpdesk</module>
+        <module>streams</module>
     </modules>
 
     <build>
