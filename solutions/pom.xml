@@ -21,6 +21,6 @@
         <module>food-delivery-modern-java-solution</module>
         <module>sealed-classes-insurance-solutions</module>
         <module>enhanced-npe-helpdesk-solution</module>
-        <module>random-generator-raffle-solution</module>
+        <module>http-client-api-solution</module>
     </modules>
 </project>

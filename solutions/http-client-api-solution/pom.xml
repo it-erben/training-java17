@@ -6,14 +6,14 @@
 
     <parent>
         <groupId>tech.erben</groupId>
-        <artifactId>assignments</artifactId>
+        <artifactId>solutions</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>streams</artifactId>
-    <name>Streams</name>
-    <description>Modul zur Einführung in Stream-APIs rund um ein Film-Rating-Dataset</description>
+    <artifactId>http-client-api-solution</artifactId>
+    <name>Java HttpClient API Solution</name>
+    <description>Referenzimplementierung für die HttpClient-Übung</description>
 
     <dependencies>
         <dependency>
@@ -22,27 +22,17 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.devskiller</groupId>
-            <artifactId>jfairy</artifactId>
-            <version>0.6.5</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-csv</artifactId>
-            <version>1.10.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>5.7.0</version>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>mockwebserver</artifactId>
+            <version>4.12.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>

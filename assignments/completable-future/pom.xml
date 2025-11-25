@@ -6,32 +6,31 @@
 
     <parent>
         <groupId>tech.erben</groupId>
-        <artifactId>java17-course</artifactId>
+        <artifactId>assignments</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>tech.erben</groupId>
-    <artifactId>assignments</artifactId>
-    <packaging>pom</packaging>
-    <name>Assignments</name>
+    <artifactId>completable-future</artifactId>
+    <name>CompletableFuture Workshop</name>
+    <description>Übungsmodul für java.util.concurrent.CompletableFuture</description>
 
-    <modules>
-        <module>records-car-dealership</module>
-        <module>text-blocks-barbershop</module>
-        <module>food-delivery-modern-java</module>
-        <module>sealed-classes-insurance</module>
-        <module>enhanced-npe-helpdesk</module>
-        <module>streams</module>
-        <module>http-client-api</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <skipTests>true</skipTests>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
         </plugins>
