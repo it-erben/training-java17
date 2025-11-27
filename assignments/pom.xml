@@ -10,7 +10,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>tech.erben</groupId>
     <artifactId>assignments</artifactId>
     <packaging>pom</packaging>
     <name>Assignments</name>
@@ -22,7 +21,7 @@
         <module>sealed-classes-insurance</module>
         <module>enhanced-npe-helpdesk</module>
         <module>streams</module>
-        <module>http-client-api</module>
+        <module>http-client</module>
     </modules>
 
     <build>

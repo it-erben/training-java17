@@ -19,6 +19,7 @@
         <module>food-delivery-modern-java-solution</module>
         <module>sealed-classes-insurance-solutions</module>
         <module>enhanced-npe-helpdesk-solution</module>
-        <module>http-client-api-solution</module>
+        <module>http-client-solution</module>
+        <module>streams-solution</module>
     </modules>
 </project>

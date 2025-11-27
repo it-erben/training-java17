@@ -1,0 +1,34 @@
+% needspace.sty
+% 
+% Ensures that there is enough vertical space left on the page.
+% If not, a \newpage is issued.
+% 
+% Author: Peter Wilson
+% 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{needspace}[2010/09/12 v1.3d provisional page breaking]
+
+\newcommand{\needspace}[1]{
+  \begingroup
+    \setlength{\dimen@}{#1}%
+    \vskip\z@\@plus\dimen@
+    \penalty -100\vskip\z@\@plus -\dimen@
+    \vskip\dimen@
+    \penalty 9999
+    \vskip -\dimen@
+    \vskip\z@skip % hide the previous \vskip from \addvspace
+  \endgroup
+}
+
+\newcommand{\Needspace}[1]{
+  \begingroup
+    \setlength{\dimen@}{#1}%
+    \ifdim\dimen@<\pagegoal
+      \ifdim\dimen@<\pagetotal
+        \break
+      \fi
+    \fi
+  \endgroup
+}
+
+\endinput
