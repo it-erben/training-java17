@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Lab – PDF Renderer</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main class="shell">
+    <header class="hero">
+        <p class="eyebrow">Java 17 Refactoring Lab</p>
+        <h1>Foto hochladen, PDF zurück</h1>
+        <p class="lede">
+            Diese Anwendung wandelt dein Foto in ein PDF um und bettet einen Info-Block ein.
+            Wähle einen Bildmodus, füge ein paar Hinweise hinzu und starte den Export.
+        </p>
+    </header>
+
+    <section class="card">
+        <form th:action="@{/print}" method="post" enctype="multipart/form-data" class="form-grid">
+            <label class="field">
+                <span>Datei</span>
+                <input type="file" name="file" accept="image/*" required>
+            </label>
+            <label class="field">
+                <span>Farbmodus</span>
+                <select name="mode">
+                    <option th:each="mode : ${colorModes}"
+                            th:value="${mode.name()}"
+                            th:text="${mode.label()}"></option>
+                </select>
+            </label>
+            <label class="field">
+                <span>Dein Name (optional)</span>
+                <input type="text" name="requestedBy" placeholder="Studio, Klasse oder Name">
+            </label>
+            <label class="field">
+                <span>Kommentar</span>
+                <textarea name="annotation" rows="3" placeholder="Hinweis, Druckwunsch, Zielgruppe..."></textarea>
+            </label>
+
+            <div class="footer">
+                <p class="hint">Nach dem Absenden bekommst du direkt ein PDF zum Download.</p>
+                <button type="submit">PDF rendern</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="info-grid">
+        <div>
+            <h3>Was du üben kannst</h3>
+            <p>Das Backend ist bewusst im klassischen Stil gehalten. Nutze <code>var</code>, Text Blocks und Switch Expressions, um den Code zu modernisieren.</p>
+        </div>
+        <div>
+            <h3>Tipps</h3>
+            <ul>
+                <li>Teste alle Modi – Farbe, Graustufen und invertiert.</li>
+                <li>Schau dir den generierten Textblock im PDF an und forme ihn um.</li>
+                <li>Trenne die Geschäftslogik im Service von der UI im Controller.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+</body>
+</html>

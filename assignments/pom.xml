@@ -16,8 +16,8 @@
     <name>Assignments</name>
 
     <modules>
+        <module>photo-pdf-workshop</module>
         <module>records-car-dealership</module>
-        <module>text-blocks-barbershop</module>
         <module>food-delivery-modern-java</module>
         <module>sealed-classes-insurance</module>
         <module>enhanced-npe-helpdesk</module>

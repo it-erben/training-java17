@@ -10,14 +10,12 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>tech.erben</groupId>
     <artifactId>solutions</artifactId>
     <packaging>pom</packaging>
     <name>Solutions</name>
 
     <modules>
         <module>records-car-dealership-solution</module>
-        <module>text-blocks-barbershop-solution</module>
         <module>food-delivery-modern-java-solution</module>
         <module>sealed-classes-insurance-solutions</module>
         <module>enhanced-npe-helpdesk-solution</module>
