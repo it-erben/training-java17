@@ -1,0 +1,8 @@
+include:
+  - component: "$CI_SERVER_FQDN/it-erben/utilities/pdf-publisher/build-publish@1.3.0"
+
+stages:
+  - build
+  - verify
+  - release
+  - deploy
