@@ -92,9 +92,10 @@ section > h2 {
   left: 80px;
 }
 </style>
+
 ## HttpClient-API
 
-![center](images/08_HttpClient-Parts.drawio.png)
+![center width:650](images/08_HttpClient-Parts.drawio.png)
 
 ---
 

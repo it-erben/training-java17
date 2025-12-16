@@ -1,7 +1,6 @@
 package tech.erben.java17.streams.movies;
 
 import java.time.Duration;
-import java.util.Comparator;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;

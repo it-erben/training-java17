@@ -58,7 +58,7 @@ section > h2 {
 
 ## Sealed Classes und Interfaces: Beispiel
 
-![center](images/10_sealed_hierarchy.drawio.png)
+![center width:500](images/10_sealed_hierarchy.drawio.png)
 
 ---
 

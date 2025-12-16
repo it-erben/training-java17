@@ -33,7 +33,8 @@ Das JEP‐Verfahren ist das strukturierte Vorgehen, um neue Features, Refactorin
 
 <hr>
 
-![](./images/01_JEP_startpage.png)
+![width:550](./images/01_JEP_startpage.png)
+
 [Link](https://openjdk.org/jeps/0)
 
 ---
@@ -51,7 +52,7 @@ Eine JEP beschreibt:
 
 ## JEP-Prozess
 
-![center](./images/01_JEP-Prozess.drawio.png)
+![center width:800](./images/01_JEP-Prozess.drawio.png)
 
 ---
 
@@ -65,7 +66,7 @@ Eine JEP beschreibt:
 ---
 ## Incubating- vs. Preview-Features
 
-![center](images/01_Incubating_Preview.drawio.png)
+![center width:700](images/01_Incubating_Preview.drawio.png)
 
 ---
 
