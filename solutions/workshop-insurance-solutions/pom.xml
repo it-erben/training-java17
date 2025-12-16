@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>workshop-insurance-solutions</artifactId>
-    <name>Sealed Classes Insurance Solutions</name>
+    <name>Solution: Workshop Insurance</name>
     <description>Vollständig ausgearbeitete Lösung mit Sealed-Klassen in der Schadenbearbeitung</description>
 
     <dependencies>

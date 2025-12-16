@@ -17,7 +17,6 @@
 
     <modules>
         <module>jpa-records-examples</module>
-        <module>jollyday-examples</module>
         <module>jigsaw-greetings-module</module>
         <module>jigsaw-greetings-app</module>
         <module>workshop-fulfillment-jakarta</module>

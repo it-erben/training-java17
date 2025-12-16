@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>workshop-insurance</artifactId>
-    <name>Sealed Classes Insurance</name>
+    <name>Assignment: Workshop Insurance</name>
     <description>Spring Boot Modul zur Demonstration von Sealed Classes im Kontext eines Versicherungssystems</description>
 
     <dependencies>

@@ -12,8 +12,8 @@
     </parent>
 
     <artifactId>workshop-car-dealership-solution</artifactId>
-    <name>Records Car Dealership Solution</name>
-    <description>Refaktorisierte Autohaus-Domäne vollständig mit Records</description>
+    <name>Solution: Workshop Car Dealership</name>
+    <description>Refacotrings der Car Dealership-Domäne mit Records</description>
 
     <dependencies>
         <dependency>

@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>jpa-records-examples</artifactId>
-    <name>JPA Records Examples</name>
+    <name>Trainer: JPA Records Examples</name>
     <description>JPA Beispielmodul für Embeddable Records und DTO Projektionen</description>
 
     <dependencies>

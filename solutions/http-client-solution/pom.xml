@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>http-client-solution</artifactId>
-    <name>HTTP Client Solution</name>
+    <name>Solution: HTTP Client</name>
     <description>Implementierte Lösung zum Java HttpClient Übungsmodul</description>
 
     <dependencies>

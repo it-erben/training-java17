@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>jigsaw-greetings-app</artifactId>
-    <name>Jigsaw Greetings App</name>
+    <name>Trainer: Jigsaw Greetings App</name>
     <description>Konsolenbeispiel, das das Jigsaw-Greetings-Modul nutzt</description>
 
     <dependencies>

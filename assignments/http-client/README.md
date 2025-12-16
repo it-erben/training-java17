@@ -3,6 +3,7 @@
 Dieses Modul spiegelt die Übung aus `worksheets/04-http.md` wider, aber in einer Maven-Struktur mit JUnit-Tests und einem Mock-Server (WireMock).
 
 ## Was zu tun ist
+- Entferne die `@Disabled`-Annotation aus der `HttpClientAssignmentsTest`-Klasse, um die Tests zu aktivieren.
 - Implementiere alle Methoden in `tech/erben/gfu/httpclient/HttpClientAssignments.java` exakt so, wie es die JavaDoc beschreibt.
 - Nutze ausschließlich den JDK-`HttpClient` (kein RestTemplate/WebClient).
 - Die Tests simulieren den Local-Echo-Server aus dem Worksheet: `HttpClientAssignmentsTest` startet dafür automatisch WireMock.

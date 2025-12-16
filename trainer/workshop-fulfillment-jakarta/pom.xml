@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>workshop-fulfillment-jakarta</artifactId>
-    <name>Fulfillment JBoss Jakarta EE</name>
+    <name>Trainer: Fulfillment JBoss Jakarta EE</name>
     <packaging>war</packaging>
     <description>JBoss-ready Jakarta EE sample with a fulfillment domain model, JPA, and REST resources</description>
 

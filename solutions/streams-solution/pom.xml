@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>streams-solution</artifactId>
-    <name>Streams Solution</name>
+    <name>Solution: Streams</name>
     <description>Gelöste Stream-Übungen rund um ein Film-Rating-Dataset</description>
 
     <dependencies>

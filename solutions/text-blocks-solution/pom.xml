@@ -12,8 +12,8 @@
     </parent>
 
     <artifactId>text-blocks-solution</artifactId>
-    <name>Text Blocks Solution</name>
-    <description>Text-Block-basierte Lösung für das Text Blocks Warmup</description>
+    <name>Solution: Text Blocks</name>
+    <description>Lösung für das Text Blocks Warmup</description>
 
     <build>
         <plugins>

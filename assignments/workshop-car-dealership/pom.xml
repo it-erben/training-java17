@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>workshop-car-dealership</artifactId>
-    <name>Records Car Dealership</name>
+    <name>Assignment: Workshop Car Dealership</name>
     <description>Spring Boot Modul zur Demonstration von Records im Kontext eines Autohauses</description>
 
     <dependencies>

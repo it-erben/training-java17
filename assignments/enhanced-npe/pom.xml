@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>enhanced-npe</artifactId>
-    <name>Enhanced NPE Helpdesk</name>
+    <name>Assignment: Enhanced NPE</name>
     <description>Spring Boot Modul zur Demonstration von Enhanced NullPointerExceptions im Kontext eines Helpdesk-Systems</description>
 
     <dependencies>

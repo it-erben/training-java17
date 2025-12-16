@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>http-client</artifactId>
-    <name>HTTP Client</name>
+    <name>Assignment: HTTP Client</name>
     <description>Aufgabenmodul zum Java HttpClient mit begleitendem Mock-Server-Test</description>
 
     <dependencies>

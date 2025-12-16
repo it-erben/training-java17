@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>workshop-photo-pdf</artifactId>
-    <name>Photo PDF Workshop</name>
+    <name>Assignment: Workshop Photo PDF</name>
     <description>Spring Boot Modul für Foto-Uploads mit PDF-Export und Java-17-Refactorings</description>
 
     <dependencies>

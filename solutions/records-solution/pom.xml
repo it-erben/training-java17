@@ -12,8 +12,8 @@
     </parent>
 
     <artifactId>records-solution</artifactId>
-    <name>Records Solution</name>
-    <description>Record-basierte Lösung für das Records Warmup Modul</description>
+    <name>Solution: Records</name>
+    <description>Lösung für das Records Warmup Modul</description>
 
     <build>
         <plugins>

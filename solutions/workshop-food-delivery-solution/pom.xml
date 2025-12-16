@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>workshop-food-delivery-solution</artifactId>
-    <name>Food Delivery Modern Java Solution</name>
+    <name>Solution: Workshop Food Delivery</name>
     <description>Solution module with extended switch expressions and pattern matching</description>
 
     <dependencies>

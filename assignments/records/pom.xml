@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>records</artifactId>
-    <name>Records Warmup</name>
+    <name>Assignment: Records</name>
     <description>Einstiegsmodul zu Java Records mit schrittweiser Übung</description>
 
     <build>

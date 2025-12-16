@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>jigsaw-greetings-module</artifactId>
-    <name>Jigsaw Greetings Module</name>
+    <name>Trainer: Jigsaw Greetings Module</name>
     <description>Beispielmodul (Java Platform Module System) mit einfacher Greeting-API</description>
 
 </project>

@@ -12,8 +12,8 @@
     </parent>
 
     <artifactId>text-blocks</artifactId>
-    <name>Text Blocks Warmup</name>
-    <description>Übungsmodul zu Java Text Blocks mit praxisnahen Templates</description>
+    <name>Assignment: Text Blocks</name>
+    <description>Übungsmodul zu Java Text Blocks mit Templates</description>
 
     <build>
         <plugins>

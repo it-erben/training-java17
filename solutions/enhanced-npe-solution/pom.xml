@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>enhanced-npe-solution</artifactId>
-    <name>Enhanced NPE Helpdesk Solution</name>
+    <name>Solution: Enhanced NPE</name>
     <description>Null-sichere Lösung mit Records und Diagnosen für Enhanced NPE Demos</description>
 
     <dependencies>
