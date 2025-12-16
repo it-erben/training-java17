@@ -1,0 +1,24 @@
+if (outcome == success) of /subsystem=elytron/filesystem-realm=appRealm:read-resource
+    /subsystem=elytron/filesystem-realm=appRealm:remove()
+end-if
+
+/subsystem=elytron/filesystem-realm=appRealm:add(path=app-realm-users, relative-to=jboss.server.config.dir)
+/subsystem=elytron/filesystem-realm=appRealm:add-identity(identity=admin)
+/subsystem=elytron/filesystem-realm=appRealm:set-password(identity=admin, clear={password="admin123"})
+/subsystem=elytron/filesystem-realm=appRealm:add-identity-attribute(identity=admin, name=roles, value=["ADMIN"])
+
+if (outcome != success) of /subsystem=elytron/simple-role-decoder=from-roles-attr:read-resource
+    /subsystem=elytron/simple-role-decoder=from-roles-attr:add(attribute=roles)
+end-if
+
+if (outcome != success) of /subsystem=elytron/security-domain=appSecurityDomain:read-resource
+    /subsystem=elytron/security-domain=appSecurityDomain:add(realms=[{realm=appRealm, role-decoder=from-roles-attr}], default-realm=appRealm, permission-mapper=default-permission-mapper)
+end-if
+
+if (outcome != success) of /subsystem=elytron/http-authentication-factory=app-http-auth:read-resource
+    /subsystem=elytron/http-authentication-factory=app-http-auth:add(http-server-mechanism-factory=global, security-domain=appSecurityDomain, mechanism-configurations=[{mechanism-name=BASIC, mechanism-realm-configurations=[{realm-name=AppRealm}]}])
+end-if
+
+if (outcome != success) of /subsystem=undertow/application-security-domain=appDomain:read-resource
+    /subsystem=undertow/application-security-domain=appDomain:add(http-authentication-factory=app-http-auth)
+end-if

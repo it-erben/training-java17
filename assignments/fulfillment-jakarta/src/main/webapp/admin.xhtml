@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Fulfillment Admin</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: linear-gradient(135deg, #0f172a, #111827); color: #e5e7eb; }
+        .shell { max-width: 1080px; margin: 0 auto; padding: 2rem; }
+        .card { background: rgba(15, 23, 42, 0.85); border: 1px solid #1f2937; border-radius: 12px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+        h1 { margin: 0 0 1rem 0; font-size: 1.8rem; letter-spacing: 0.02em; }
+        h2 { margin-top: 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(220px, 1fr)); gap: 0.6rem 1rem; }
+        label { color: #cbd5e1; font-size: 0.95rem; }
+        input { width: 100%; padding: 0.55rem 0.65rem; border-radius: 8px; border: 1px solid #1f2937; background: #0b1224; color: #e5e7eb; }
+        table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+        th, td { border: 1px solid #1f2937; padding: 0.55rem; text-align: left; }
+        th { background: #0f172a; }
+        .section { margin-top: 1.5rem; }
+        .pill { display: inline-block; padding: 0.25rem 0.7rem; border-radius: 999px; background: #0ea5e9; color: #0b1224; font-weight: 600; }
+        .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+        .btn { padding: 0.6rem 0.9rem; border-radius: 10px; border: 1px solid #1f2937; background: linear-gradient(135deg, #22d3ee, #38bdf8); color: #0b1224; font-weight: 700; cursor: pointer; }
+        .btn.secondary { background: linear-gradient(135deg, #a855f7, #6366f1); color: #0b1224; }
+        .muted { color: #94a3b8; font-size: 0.95rem; }
+        .messages { margin: 0.5rem 0 1rem 0; padding: 0; list-style: none; }
+        .messages li { margin: 0.2rem 0; padding: 0.45rem 0.6rem; border-radius: 8px; }
+        .messages .error { background: #7f1d1d; color: #fecdd3; border: 1px solid #fecdd3; }
+        .messages .info { background: #0f172a; color: #e0f2fe; border: 1px solid #0ea5e9; }
+    </style>
+</h:head>
+<h:body>
+    <div class="shell">
+        <h1>Fulfillment Admin</h1>
+        <p class="muted">Create orders quickly, or generate a random demo payload to play with.</p>
+        <h:messages id="msgs" globalOnly="false" layout="list" showSummary="true" showDetail="true"
+                    styleClass="messages" errorClass="error" infoClass="info"/>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Create Order</h2>
+                <h:form id="orderForm">
+                    <div class="actions">
+                        <h:commandButton styleClass="btn secondary" value="Fill random demo data" action="#{orderAdminBean.populateRandom}" immediate="true">
+                            <f:ajax execute="@this" render="@form msgs"/>
+                        </h:commandButton>
+                    </div>
+                    <div class="section">
+                        <div class="form-grid">
+                            <h:outputLabel for="orderNumber" value="Order Number"/>
+                            <h:inputText id="orderNumber" value="#{orderAdminBean.newOrder.orderNumber}" required="true"/>
+
+                            <h:outputLabel for="customerRef" value="Customer Ref"/>
+                            <h:inputText id="customerRef" value="#{orderAdminBean.newOrder.customerReference}"/>
+
+                            <h:outputLabel for="addr1" value="Address line 1"/>
+                            <h:inputText id="addr1" value="#{orderAdminBean.newAddress.line1}" required="true"/>
+
+                            <h:outputLabel for="addr2" value="Address line 2"/>
+                            <h:inputText id="addr2" value="#{orderAdminBean.newAddress.line2}"/>
+
+                            <h:outputLabel for="city" value="City"/>
+                            <h:inputText id="city" value="#{orderAdminBean.newAddress.city}" required="true"/>
+
+                            <h:outputLabel for="state" value="State/Province"/>
+                            <h:inputText id="state" value="#{orderAdminBean.newAddress.stateOrProvince}" required="true"/>
+
+                            <h:outputLabel for="postal" value="Postal Code"/>
+                            <h:inputText id="postal" value="#{orderAdminBean.newAddress.postalCode}" required="true"/>
+
+                            <h:outputLabel for="country" value="Country"/>
+                            <h:inputText id="country" value="#{orderAdminBean.newAddress.country}" required="true"/>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3>Line items</h3>
+                        <div class="form-grid">
+                            <h:outputLabel for="sku" value="SKU"/>
+                            <h:inputText id="sku" value="#{orderAdminBean.lineItemForm.sku}"/>
+
+                            <h:outputLabel for="desc" value="Description"/>
+                            <h:inputText id="desc" value="#{orderAdminBean.lineItemForm.description}"/>
+
+                            <h:outputLabel for="qty" value="Quantity"/>
+                            <h:inputText id="qty" value="#{orderAdminBean.lineItemForm.quantity}">
+                                <f:validateLongRange minimum="1"/>
+                            </h:inputText>
+                        </div>
+                        <h:commandButton styleClass="btn secondary" value="Add line item" action="#{orderAdminBean.addLineItem}" style="margin-top:0.5rem;"/>
+
+                        <h:dataTable value="#{orderAdminBean.lineItems}" var="li" rendered="#{not empty orderAdminBean.lineItems}">
+                            <h:column>
+                                <f:facet name="header">SKU</f:facet>
+                                #{li.sku}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Description</f:facet>
+                                #{li.description}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Quantity</f:facet>
+                                #{li.quantity}
+                            </h:column>
+                            <h:column>
+                                <h:commandLink value="Remove" action="#{orderAdminBean.removeLineItem(li)}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+
+                    <h:commandButton styleClass="btn" value="Create order" action="#{orderAdminBean.createOrder}" style="margin-top:1rem;"/>
+                </h:form>
+            </div>
+
+            <div class="card">
+                <h2>Existing Orders</h2>
+                <h:dataTable value="#{orderAdminBean.orders}" var="order">
+                    <h:column>
+                        <f:facet name="header">Order</f:facet>
+                        #{order.orderNumber}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Status</f:facet>
+                        <span class="pill">#{order.status}</span>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Customer Ref</f:facet>
+                        #{order.customerReference}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ship to</f:facet>
+                        #{order.shippingAddress.line1}, #{order.shippingAddress.city}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Line Items</f:facet>
+                        <ui:repeat value="#{order.lineItems}" var="item" varStatus="stat">
+                            #{item.sku} (#{item.orderedQuantity})#{stat.last ? '' : ', '}
+                        </ui:repeat>
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>
