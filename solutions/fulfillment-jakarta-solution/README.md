@@ -9,7 +9,7 @@ mvn package
 
 2) Bootable JAR starten:
 ```
-java -jar target/fulfillment-jakarta-bootable.jar
+java -jar target/fulfillment-jakarta-solution-bootable.jar
 ```
 
 3) Aufrufen:
@@ -27,3 +27,4 @@ java -jar target/fulfillment-jakarta-bootable.jar
 
 - Jakarta EE 10 (JAX-RS, JPA, CDI, JSF) auf WildFly Bootable JAR
 - H2 für lokale Persistenz
+- Records für Requests/Responses und Embeddeds (`Address`), sealed Projections (`OrderView`, `ShipmentView`) für JPA-Queries

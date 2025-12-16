@@ -6,15 +6,15 @@
 
     <parent>
         <groupId>tech.erben</groupId>
-        <artifactId>assignments</artifactId>
+        <artifactId>solutions</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>fulfillment-jakarta</artifactId>
-    <name>Fulfillment JBoss Jakarta EE</name>
+    <artifactId>fulfillment-jakarta-solution</artifactId>
+    <name>Fulfillment JBoss Jakarta EE Solution</name>
     <packaging>war</packaging>
-    <description>JBoss-ready Jakarta EE sample with a fulfillment domain model, JPA, and REST resources</description>
+    <description>Solution module with record-based DTOs and sealed projections for the fulfillment domain model on Jakarta EE</description>
 
     <dependencies>
         <dependency>
@@ -57,7 +57,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <output-file-name>fulfillment-jakarta-bootable.jar</output-file-name>
+                    <output-file-name>fulfillment-jakarta-solution-bootable.jar</output-file-name>
                     <feature-packs>
                         <feature-pack>
                             <location>org.wildfly:wildfly-ee-galleon-pack:30.0.1.Final</location>

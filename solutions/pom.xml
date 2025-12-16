@@ -21,5 +21,6 @@
         <module>enhanced-npe-helpdesk-solution</module>
         <module>http-client-solution</module>
         <module>streams-solution</module>
+        <module>fulfillment-jakarta-solution</module>
     </modules>
 </project>
