@@ -6,33 +6,22 @@
 
     <parent>
         <groupId>tech.erben</groupId>
-        <artifactId>java17-course</artifactId>
+        <artifactId>assignments</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>assignments</artifactId>
-    <packaging>pom</packaging>
-    <name>Assignments</name>
-
-    <modules>
-        <module>workshop-photo-pdf</module>
-        <module>workshop-car-dealership</module>
-        <module>records</module>
-        <module>workshop-food-delivery</module>
-        <module>workshop-insurance</module>
-        <module>enhanced-npe</module>
-        <module>streams</module>
-        <module>http-client</module>
-        <module>text-blocks</module>
-    </modules>
+    <artifactId>text-blocks</artifactId>
+    <name>Text Blocks Warmup</name>
+    <description>Übungsmodul zu Java Text Blocks mit praxisnahen Templates</description>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <skipTests>true</skipTests>
+                    <release>21</release>
                 </configuration>
             </plugin>
         </plugins>

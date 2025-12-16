@@ -15,11 +15,13 @@
     <name>Solutions</name>
 
     <modules>
-        <module>records-car-dealership-solution</module>
-        <module>food-delivery-modern-java-solution</module>
-        <module>sealed-classes-insurance-solutions</module>
-        <module>enhanced-npe-helpdesk-solution</module>
+        <module>workshop-car-dealership-solution</module>
+        <module>workshop-food-delivery-solution</module>
+        <module>workshop-insurance-solutions</module>
+        <module>enhanced-npe-solution</module>
         <module>http-client-solution</module>
         <module>streams-solution</module>
+        <module>records-solution</module>
+        <module>text-blocks-solution</module>
     </modules>
 </project>
