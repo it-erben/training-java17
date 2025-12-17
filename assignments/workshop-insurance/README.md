@@ -8,10 +8,10 @@ Dieses Modul zeigt, wie sealed Interfaces die erlaubten Schadenstypen einer Vers
 - Mit sealed Hierarchien Services und UIs strukturieren
 
 ## Hands-on-Aufgaben
-1. Füge einen weiteren Schadenstyp `HomeClaim` hinzu und passe den Service sowie das UI an.
-2. Ergänze Validierungen, die pro Schadenstyp spezielle Grenzen für `amount` prüfen.
-3. Schreibe Tests, die sicherstellen, dass unbekannte Implementierungen nicht zugelassen werden.
-4. Diskutiere im Team, wann sealed Klassen gegenüber klassischen abstrakten Klassen Vorteile bieten.
+1. Füge einen weiteren Schadenstyp `HomeClaim` hinzu
+2. `ClaimAssessmentService` umbauen, sodass er Switch Expressions verwendet
+3. In `ClaimController` einen Beispieldatensatz für `HomeClaim` in die Liste einfügen
+4. In `resources/templates/claims.html` eine weitere Zeile einfügen, die euren neuen `HomeClaim` anzeigt (Zeile 29)
 
 ## Link
 Die Anwendung ist nach dem Start verfügbar unter:

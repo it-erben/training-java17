@@ -5,7 +5,6 @@ Dieses Modul erzeugt mit Apache Batik eine SVG-Ansicht des Helpdesk-Boards. Mehr
 ## Lernziele
 - Verbesserte NPE-Meldungen interpretieren und betroffene Variablen finden
 - Schrittweise Null-Schutzmaßnahmen implementieren (Dokumenterzeugung, Ticketdaten, Farben, Fortschritt)
-- Testgetrieben arbeiten: Für jeden der Bugs unten erst einen Unit-Test anlegen und danach beheben.
 
 ## Bekannte Bugs (bitte beheben)
 1. `createDocument()` gibt `null` zurück – schon beim ersten Zugriff auf das SVG-Dokument kracht es.

@@ -1,4 +1,4 @@
-# Photo Lab – Upload als PDF zurück
+# Photo Lab
 
 Eine grössere Spring-Boot-Anwendung: Fotos werden im Browser hochgeladen, verarbeitet (Farbe/Graustufen/invertiert) und als PDF zurückgegeben. Der Code ist absichtlich noch nicht im modernen Java‑Stil.
 
