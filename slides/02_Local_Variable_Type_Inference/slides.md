@@ -18,14 +18,12 @@ section > h2 {
 </style>
 
 # Local Variable Type Inference
-### "_var_"
 
 ---
 
 ## Local Variable Type Inference
 
 Unter bestimmten Umständen kann der Compiler den Typ einer lokalen Variable automatisch ermitteln.
-<hr>
 
 _Aus_
 ```java
@@ -40,8 +38,6 @@ var message = "So ist es seit Java 10"
 ## Vorteile
 
 Das kann den Code lesbarer machen, in dem es das "Rauschen" durch Generics auf die rechte Seite der Zuweisung verschiebt.
-
-<hr>
 
 _Aus_
 ```java
@@ -58,8 +54,6 @@ var idToNameMap = new HashMap<Integer, String>();
 
 Der Compiler kann den Typ nicht ermitteln, wenn bei der keine vollständige Initialisierung stattfindet.
 
-<hr>
-
 ```java
 var i;          // Error: cannot use 'var' on variable without initalizer
 var c = null;   // Error: Variable initializer is 'null'
@@ -70,8 +64,6 @@ var c = null;   // Error: Variable initializer is 'null'
 ## Einschränkungen
 
 Auch für Felder, Lambda-Parameter und Arrays ist Local Variable Type Inference nicht möglich.
-
-<hr>
 
 ```java
 class Test {
@@ -89,8 +81,6 @@ var arr = { 1, 2, 3 }; // error: array initializer needs an explicit target-type
 ## Hinweise
 
 Man sollte var nur einsetzen, wenn der Typ aus der rechten Seite der Zuweisung unmittelbar ersichtlich ist.
-
-<hr>
 
 ```java
 var result = service.execute(); // hier ist unklar, was der Return Type ist

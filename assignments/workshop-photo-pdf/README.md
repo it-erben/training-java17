@@ -14,8 +14,6 @@ Eine grössere Spring-Boot-Anwendung: Fotos werden im Browser hochgeladen, verar
 3. `ImageProcessingService#applyColorMode` nutzt noch ein klassisches `switch`. Baue daraus eine Switch Expression mit klaren Defaults.
 4. Starte die Anwendung und lade unterschiedliche Bilder hoch (Farbe/Graustufen/invertiert). Prüfe, ob die generierten PDFs den Textblock korrekt enthalten.
 
-## Starten
-```bash
-mvn -pl assignments/photo-pdf-workshop spring-boot:run
-```
-Port: 9086
+## Link
+Die Anwendung ist nach dem Start verfügbar unter:
+http://localhost:9086

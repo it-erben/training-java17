@@ -13,8 +13,6 @@ Dieses Modul zeigt, wie sealed Interfaces die erlaubten Schadenstypen einer Vers
 3. Schreibe Tests, die sicherstellen, dass unbekannte Implementierungen nicht zugelassen werden.
 4. Diskutiere im Team, wann sealed Klassen gegenüber klassischen abstrakten Klassen Vorteile bieten.
 
-## Starten
-```bash
-mvn -pl assignments/sealed-classes-insurance spring-boot:run
-```
-Port: 9084
+## Link
+Die Anwendung ist nach dem Start verfügbar unter:
+http://localhost:9084

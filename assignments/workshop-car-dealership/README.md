@@ -8,13 +8,10 @@ Dieses Modull verwendet bewusst eine klassische, stark mutable Modellschicht. Zi
 - Service-Logik so refaktorieren, dass keine Seiteneffekte mehr nötig sind
 
 ## Hands-on-Aufgaben
-1. Wandelt `Car`, `Customer`, `SalesConsultant`, `LeasingOffer` und `TestDriveBooking` in Records um (inklusive erforderlicher Validation).
-2. Ersetzt die händische Kopierlogik in `InventoryService` durch saubere Kopier- oder `with`-Methoden.
-3. Sorgt dafür, dass Rabattberechnungen ohne temporäre Zustandsänderungen auskommen.
-4. Schreibt Tests, die die neue Record-basierte Logik absichern (z.B. Discount-Berechnung, Leasing-Rate).
+1. Wandelt die Klassen und `SalesConsultant` `Customer` in ein Record um. Baut dabei sinnvolle Validierungen der Eingabedaten in den Konstruktor mit ein.
+2. Wandelt  `LeasingOffer`, `TestDriveBooking` und `Car` in Records um (inklusive erforderlicher Validation).
+3. Ersetzt die händische Kopierlogik in `InventoryService` durch saubere Kopier- oder `with`-Methoden.
 
-## Starten
-```bash
-mvn -pl assignments/records-car-dealership spring-boot:run
-```
-Port: 9081
+## Link
+Die Anwendung ist nach dem Start verfügbar unter:
+http://localhost:9081

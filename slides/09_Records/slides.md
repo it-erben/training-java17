@@ -19,7 +19,7 @@ img[alt~="center"] {
 
 ## Records: Überblick
 
-* Records sind eine Sprachfunktion für „Daten-als-Daten“:
+* Records sind eine Sprachfunktion für "Datenklassen"
 * kompakte, shallow‑immutable Klassen mit automatisch generierten
     * equals, hashCode, toString
     * Accessor‑Methoden

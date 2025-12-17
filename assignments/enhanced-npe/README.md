@@ -14,8 +14,7 @@ Dieses Modul erzeugt mit Apache Batik eine SVG-Ansicht des Helpdesk-Boards. Mehr
 4. Tickets ohne zugewiesene Agent:innen, ohne Farbe oder ohne E-Mail liefern weitere NPEs bei der Farbberechnung und beim Anzeigen der Kontaktdaten.
 5. Ein Ticket besitzt gar keine ID, was bei der Großschreibung im Renderer ebenfalls eine NPE auslöst.
 
-## Starten
-```bash
-mvn -pl assignments/enhanced-npe-helpdesk spring-boot:run
-```
-Port: 9085
+
+## Link
+Die Anwendung ist nach dem Start verfügbar unter:
+http://localhost:9085
