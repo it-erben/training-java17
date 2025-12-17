@@ -92,17 +92,19 @@ Manche Ressourcen müssen nach Verwendung aufgeräumt werden.
 Dies geht im finally-Block oder mit try-with-resources.
 
 ```java
-public void copyFileOperation() throws IOException {
+public void copyFileOperationClassic() throws IOException {
+    var fis = new FileInputStream("input.txt");
     try {
-        fis = new FileInputStream("input.txt");
-        // perform operation on the file
-
-        fis.close();
-
+        // use file stream
     } finally {
-        if (fis != null) {
-            fis.close();
-        }
+        fis.close();
+    }
+}
+
+
+public void copyFileOperationTWR() throws IOException {
+    try(var fis = new FileInputStream("input.txt")) {
+        // use file stream
     }
 }
 ```
