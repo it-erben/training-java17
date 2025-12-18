@@ -155,3 +155,60 @@ public void readFileOperationWithTryWith() throws IOException {
     }
 }
 ```
+
+---
+
+# Random Number Generation (Java 17)
+
+---
+
+## Classic Java Random
+
+Für Zufallszahlenberechnungen vor Java 17 gab es die `Random`-Klasse.
+
+```java
+Random random = new Random();
+int number = random.nextInt(10);
+assertThat(number).isPositive().isLessThan(10);
+```
+
+---
+
+## ThreadLocalRandom
+
+`Random` ist zwar Thread-Safe, hat aber schlechte Performance, wenn sie zwischen Threads geteilt wird. Es gibt dafür `ThreadLocalRandom`.
+
+```java
+int n = ThreadLocalRandom.current().nextInt(1, 11);
+```
+
+Jeder Thread erhält intern seine eigene Zufallsquelle, wodurch Contention und Performance-Probleme vermieden werden.
+
+---
+
+## Java 17 RandomNumberGenerator
+
+In Java 17 wurde die Zufallszahlen-API neu gestaltet. Der Generator ist nun explizit anzugeben für bessere Kontrolle.
+
+```java
+RandomGenerator rnd = RandomGenerator.of("L64X128MixRandom").create(42);
+double x = rnd.nextDouble();
+```
+
+Jetzt ist explizit, welcher Generator genutzt wird. Besser für Testes und Reproduzierbarkeit.
+
+---
+
+## Schnelle vs. kryptographisch sichere Zufallszahlen
+
+Die neue API bietet sowohl schnelle als auch kryptographisch sichere Zufallszahlengenerierung über eine Schnittstelle.
+
+```java
+ // schnell (nicht kryptographisch sicher)
+RandomGenerator fast = RandomGenerator.of("L64X128MixRandom");
+int n = fast.nextInt(1, 11);
+
+// kryptographisch sicher, aber langsamer
+RandomGenerator secure = RandomGenerator.of("SecureRandom");
+n = secure.nextInt(1, 11);
+```
