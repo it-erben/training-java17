@@ -1,8 +1,12 @@
 include:
-  - component: "$CI_SERVER_FQDN/it-erben/utilities/pdf-publisher/build-publish@1.5.1"
+  - component: "$CI_SERVER_FQDN/it-erben/components/pdf-publisher/build-publish@1.5.1"
+  - component: "$CI_SERVER_FQDN/it-erben/components/linters/lychee-lint@1.0.0"
+  - component: "$CI_SERVER_FQDN/it-erben/components/linters/yaml-lint@1.0.0"
+  - component: "$CI_SERVER_FQDN/it-erben/components/linters/markdown-lint@1.0.0"
 
 stages:
   - build
+  - lint
   - verify
   - release
   - deploy
