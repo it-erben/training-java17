@@ -33,7 +33,7 @@ String emailAddress = employee.getPersonalDetails().getEmailAddress().toLowerCas
 
 Seit Java 17 enthalten NPEs die genaue Ursache
 
-```
+```text
 Exception in thread "main" java.lang.NullPointerException: 
   Cannot invoke "String.toLowerCase()" because the return value of 
 "Main$PersonalDetails.getEmailAddress()" is null
@@ -139,10 +139,11 @@ public class MyFinalizableResourceClass {
     }
 }
 ```
+
 * Das war keine gute Idee, weil man nie genau weiß, wann die Methode aufgerufe wird.
 * Es verlangsamt außerdem den Garbage Collector erheblich.
 
---- 
+---
 
 ## Entfall Finalization
 

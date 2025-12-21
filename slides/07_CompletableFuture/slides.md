@@ -35,21 +35,21 @@ img[alt~="center"] {
 
 ## CompletableFuture
 
-
 * CompletableFuture implementiert Future, erweitert es aber um aktive Vervollständigungslogik.
 * Eine Instanz kann leer erzeugt und an Konsumenten verteilt werden; später wird sie über complete(...) abgeschlossen.
 * Konsumenten können per get() blockierend auf das Ergebnis warten.
 * Typisches Muster:
-    * Methode erstellt ein CompletableFuture,
-    * startet eine Berechnung in einem anderen Thread,
-    * gibt das Future sofort zurück,
-    * und ruft nach Abschluss der Berechnung complete(...) auf.
+  * Methode erstellt ein CompletableFuture,
+  * startet eine Berechnung in einem anderen Thread,
+  * gibt das Future sofort zurück,
+  * und ruft nach Abschluss der Berechnung complete(...) auf.
 
 ---
 
 ## Erzeugung eines CompletableFuture
 
 Ein CompletableFuture ist nicht direkt nach seiner Anlage abgeschlossen. Die Ausführung übernimmt ein _Executor_. Wird keiner übergeben, greift der Standard-Executor-Pool.
+
 ```java
 var executor = Executors.newCachedThreadPool();
 
@@ -106,6 +106,7 @@ var future1 = completableFuture
 var future2 = completableFuture
   .thenRun(() -> System.out.println("Computation finished.")); // FÜr Runnable
 ```
+
 **thenAccept**
 Wollen wir einen Java 8-Consumer verwenden, so verwenden wir diese Methode.
 

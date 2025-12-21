@@ -25,7 +25,6 @@ img[alt~="center"] {
 
 ---
 
-
 ## Deklaration und _permits_
 
 Die grundlegende Schreibweise sieht folgendermaßen aus:
@@ -42,9 +41,9 @@ public sealed class Payment permits CardPayment, WirePayment { /* … */ }
 
 ## Sealed Classes: Kernregeln
 
-- Jede _permitted subclass_ muss explizit als `final`, `sealed` oder `non-sealed` deklariert sein; ohne einen dieser Modifizierer führt die Kompilierung zu einem Fehler.
-- Versiegelter Typ und erlaubte Subtypen müssen sich im gleichen Modul befinden (bzw. im Unnamed‑Modul im gleichen Paket).
-- Die `permits`‑Liste kann entfallen, wenn alle direkten Subtypen im gleichen Source‑File stehen.
+* Jede _permitted subclass_ muss explizit als `final`, `sealed` oder `non-sealed` deklariert sein; ohne einen dieser Modifizierer führt die Kompilierung zu einem Fehler.
+* Versiegelter Typ und erlaubte Subtypen müssen sich im gleichen Modul befinden (bzw. im Unnamed‑Modul im gleichen Paket).
+* Die `permits`‑Liste kann entfallen, wenn alle direkten Subtypen im gleichen Source‑File stehen.
 
 ---
 
@@ -69,7 +68,6 @@ pre {
 </style>
 
 ## Sealed Classes und Interfaces: Beispiel
-
 
 ```java
 public sealed interface Shape permits Circle, Rectangle, Square { }

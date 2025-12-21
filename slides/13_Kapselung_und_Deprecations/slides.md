@@ -22,10 +22,9 @@ p > pre {
 
 ## Starke Kapselung
 
-
 * Nahezu alle Abhängigkeiten (Frameworks, Libraries, JDK-APIs, eigene Projekte) bestehen aus:
-    * öffentlichen, stabilen APIs
-    * internem Code, der die öffentliche API unterstützt
+  * öffentlichen, stabilen APIs
+  * internem Code, der die öffentliche API unterstützt
 * Ziel: Vermeidung unbeabsichtigter Nutzung interner APIs
 * Ergebnis: robustere, besser wartbare Projekte
 
@@ -36,9 +35,9 @@ p > pre {
 * OpenJDK-Codebasis wird laufend refaktoriert: Code wird verändert, verschoben, gelöscht
 * Öffentliche API bleibt stabil – sie ist der Vertrag mit Java-Nutzern
 * Trennung zwischen öffentliche API und interne Implementierung ist entscheidend:
-    * interne Nutzung kann bei jedem Minor-Update brechen
+  * interne Nutzung kann bei jedem Minor-Update brechen
 kann JDK-Upgrades blockieren
-    * Gleichzeitig bieten interne APIs manchmal einzigartige Fähigkeiten
+  * Gleichzeitig bieten interne APIs manchmal einzigartige Fähigkeiten
 
 ---
 
@@ -53,17 +52,16 @@ kann JDK-Upgrades blockieren
 
 ## Project Jigsaw – Überblick (Java 9)
 
-
 **Ziel**: Langfristige Modularisierung der Java-Plattform und von Anwendungen
 
 **Kernbausteine**:
+
 * module-info.java zur Definition von Exports und Dependencies
 * Module Path als Ersatz/Ergänzung zum Classpath
 
 ---
 
 ## Vorteile der Modularisierung von Java
-
 
 * Klare Kapselung: Nur explizit exportierte Packages sind sichtbar
 * Stärkere Integrität & Sicherheit des Codes
@@ -88,10 +86,10 @@ kann JDK-Upgrades blockieren
 
 **`java.*`**
 
-- öffentliche API
-- aber: nur öffentliche Member öffentlicher Klassen
-- weniger sichtbare Klassen/Member sind intern
-- Modul-System kapselt sie stark
+* öffentliche API
+* aber: nur öffentliche Member öffentlicher Klassen
+* weniger sichtbare Klassen/Member sind intern
+* Modul-System kapselt sie stark
 
 ---
 
@@ -99,17 +97,17 @@ kann JDK-Upgrades blockieren
 
 **`sun.*`**
 
-- fast vollständig intern
-- Ausnahmen:
-    - `sun.misc.*` und `sun.reflect.*` werden vom Modul `jdk.unsupported` exportiert/geöffnet
-    - bieten kritische Funktionalität (z.B. `sun.misc.Unsafe`)
-- Grundregel: `sun.*` vermeiden
+* fast vollständig intern
+* Ausnahmen:
+  * `sun.misc.*` und `sun.reflect.*` werden vom Modul `jdk.unsupported` exportiert/geöffnet
+  * bieten kritische Funktionalität (z.B. `sun.misc.Unsafe`)
+* Grundregel: `sun.*` vermeiden
 
 ---
 
 ## Wichtige APIs
 
-**`com.sun.*``** 
+**`com.sun.*`**
 
 * JDK-spezifisch, nicht Teil des Java-Standards
 * ca. 90 % intern (nicht exportiert)
@@ -131,6 +129,7 @@ public class Test {
 }
 // Error: package sun.security.x509 is not visible
 ```
+
 kompiliert wieder mit:
 `javac --add-exports java.base/sun.security.x509=ALL-UNNAMED Test.java`
 
@@ -152,5 +151,6 @@ public class Test {
 // InaccessibleObjectException: Unable to make field 
 // private final byte[] java.lang.String.value accessible
 ```
+
 Läuft wieder mit
 `java --add-opens java.base/java.lang=ALL-UNNAMED Test.java`

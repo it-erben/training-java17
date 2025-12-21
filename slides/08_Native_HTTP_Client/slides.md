@@ -107,6 +107,7 @@ var client = HttpClient.newBuilder()
               .followRedirects(HttpClient.Redirect.NEVER)  // unterbindet alle Redirects
               .build();
 ```
+
 ---
 
 ## HttpClient: Weitere Einstellungen
@@ -118,11 +119,8 @@ HttpClient.newBuilder()
               .build();
 ```
 
-
 > **Connect Timeout**
 > Zeit beim Verbindungsaufbau, die vergeht, bis eine HttpConnectTimeoutException geworfen wird.
-
-
 > **Executor**
 > Wird verwendet, wenn asynchrone HTTP-Aufrufe vorgenommen werden.
 
@@ -156,6 +154,7 @@ pre {
    font-size: 0.5rem;
 }
 </style>
+
 ## HttpClient: BodyHandler
 
 ```java
@@ -211,7 +210,6 @@ pre {
 </style>
 
 ## BodyPublisher
-
 
 ```java
 // String

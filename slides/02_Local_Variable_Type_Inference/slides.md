@@ -25,25 +25,32 @@ section > h2 {
 
 Unter bestimmten Umständen kann der Compiler den Typ einer lokalen Variable automatisch ermitteln.
 
-_Aus_
+Aus
+
 ```java
 String message = "So war es früher"
 ```
-_wird_
+
+wird
+
 ```java
 var message = "So ist es seit Java 10"
 ```
+
 ---
 
 ## Vorteile
 
 Das kann den Code lesbarer machen, in dem es das "Rauschen" durch Generics auf die rechte Seite der Zuweisung verschiebt.
 
-_Aus_
+Aus
+
 ```java
 Map<Integer, String> map = new HashMap<>();
 ```
-_wird_
+
+wird
+
 ```java
 var idToNameMap = new HashMap<Integer, String>();
 ```

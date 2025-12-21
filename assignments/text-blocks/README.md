@@ -1,8 +1,12 @@
 # Text Blocks Warmup – Mehrzeilige Strings ohne Escape-Salat
 
-Dieses Modul enthält typische Anwendungsfälle für Java Text Blocks: HTML-Mail-Templates, SQL-Strings und Markdown-Fragmente, die per `+` und `\n` zusammengesetzt werden. Deine Aufgabe ist es, sie in Text Blocks zu überführen – inklusive Einrückung, Platzhaltern und String-Manipulationen.
+Dieses Modul enthält typische Anwendungsfälle für Java Text Blocks:
+HTML-Mail-Templates, SQL-Strings und Markdown-Fragmente, die per `+` und `\n`
+zusammengesetzt werden. Deine Aufgabe ist es, sie in Text Blocks zu überführen
+– inklusive Einrückung, Platzhaltern und String-Manipulationen.
 
 ## Aufgaben in Etappen
+
 1. **HTML-Mails bereinigen**  
    - Wandle `EmailComposer#buildWelcomeMail` in einen Text Block um. Nutze Platzhalter (`%s`/`String#formatted`) statt Verkettungen.  
    - Achte darauf, dass `<a href>`-Zeilen sauber eingerückt sind und über `stripIndent()` o. Ä. keine überflüssigen Spaces in den Mail-Body rutschen.  

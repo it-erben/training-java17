@@ -23,11 +23,11 @@ p > pre {
 ## Pattern Matching in Java 17
 
 In JDK 17 gibt es zwei Pattern‑Matching‑Fähigkeiten:
+
 - Final: Pattern Matching for instanceof
 - Preview: Pattern Matching for switch
 
 ---
-
 
 ## Ausgangspunkt
 
@@ -40,24 +40,24 @@ if (o instanceof String) {
 }
 ```
 
-...oder tief verschachtelte `if‑else`‑Ketten, die verschiedene Subtypen eines gemeinsamen Interfaces behandeln. 
+...oder tief verschachtelte `if‑else`‑Ketten, die verschiedene Subtypen eines gemeinsamen Interfaces behandeln.
 
---- 
+---
 
 ## Klassisches `instanceof`
 
-* Das funktioniert – aber elegant ist das nicht. 
-* Jeder Cast ist eine potentielle Fehlerquelle
-* Pattern Matching for `instanceof` (JEP 394) ist seit JDK 16 final und in JDK 17 ganz normal nutzbar.
-* Pattern Matching für `switch` (JEP 406) ist in JDK 17 noch ein Preview‑Feature, das Sie explizit mit `--enable-preview` aktivieren müssen. In neueren JDKs (ab 21) ist es final geworden.
+- Das funktioniert – aber elegant ist das nicht.
+- Jeder Cast ist eine potentielle Fehlerquelle
+- Pattern Matching for `instanceof` (JEP 394) ist seit JDK 16 final und in JDK 17 ganz normal nutzbar.
+- Pattern Matching für `switch` (JEP 406) ist in JDK 17 noch ein Preview‑Feature, das Sie explizit mit `--enable-preview` aktivieren müssen. In neueren JDKs (ab 21) ist es final geworden.
 
 ---
 
 ## Vom klassischen instanceof zum Pattern Matching
 
-* Beispiel aus vielen, älteren Projekten: Konfigurationen in Maps
-* Sie werden zur Laufzeit aus einer `Map<String, Object>` geladen
-* Ein Wert kann je nach Quelle ein `String`, ein `Integer` oder vielleicht auch `null` sein
+- Beispiel aus vielen, älteren Projekten: Konfigurationen in Maps
+- Sie werden zur Laufzeit aus einer `Map<String, Object>` geladen
+- Ein Wert kann je nach Quelle ein `String`, ein `Integer` oder vielleicht auch `null` sein
 
 ```java
 Object timeout = config.get("timeoutSeconds");
@@ -70,7 +70,7 @@ if (timeout instanceof Integer) {
 ```
 
 ---
- 
+
 <style scoped>
 pre {
    font-size: 0.58rem;
@@ -78,6 +78,7 @@ pre {
 </style>
 
 ## Moderne Lösung
+
 Mit Pattern Matching für `instanceof` reduziert sich dieser Code.
 
 ```java
@@ -86,16 +87,17 @@ if (timeout instanceof Integer t && t > 0) {
 }
 
 ```
-* `instanceof` akzeptiert nicht mehr nur einen Typ, sondern ein Typ‑Pattern wie `Integer t`. 
-* Trifft das Pattern zu, steht Ihnen im if‑Block direkt die gebundene Variable `t` zur Verfügung – der explizite Cast entfällt.
+
+- `instanceof` akzeptiert nicht mehr nur einen Typ, sondern ein Typ‑Pattern wie `Integer t`.
+- Trifft das Pattern zu, steht Ihnen im if‑Block direkt die gebundene Variable `t` zur Verfügung – der explizite Cast entfällt.
+
 ---
 
 ## Flow Scope
 
-* Der Compiler kennt den sogenannten _Flow Scope_
-* Er weiß, in welchen Bereichen des Ausdrucks die Variable sicher gebunden ist. 
-* Rechts von `&&` ist `t` garantiert vorhanden, rechts von `||` nicht – deshalb verweigert der Compiler dieses Beispiel:
-
+- Der Compiler kennt den sogenannten _Flow Scope_
+- Er weiß, in welchen Bereichen des Ausdrucks die Variable sicher gebunden ist.
+- Rechts von `&&` ist `t` garantiert vorhanden, rechts von `||` nicht – deshalb verweigert der Compiler dieses Beispiel:
 
 ```java
 if (timeout instanceof Integer t || "1".equals(t.toString())) {
@@ -107,7 +109,6 @@ if (timeout instanceof Integer t || "1".equals(t.toString())) {
 
 ## Weiteres Beispiel
 
-
 ```java
 @Override
 public boolean equals(Object o) {
@@ -117,8 +118,8 @@ public boolean equals(Object o) {
 }
 ```
 
-* Früher stand hier meist eine Kombination aus `if (!(o instanceof Money)) return false;` und einem expliziten Cast. 
-* Mit Pattern Matching liest sich die Methode fast wie eine fachliche Aussage
+- Früher stand hier meist eine Kombination aus `if (!(o instanceof Money)) return false;` und einem expliziten Cast.
+- Mit Pattern Matching liest sich die Methode fast wie eine fachliche Aussage
 
 ---
 
@@ -147,7 +148,6 @@ static String formatForLog(Object value) {
 - Die `case`‑Labels sind nicht mehr auf Konstanten beschränkt, sondern können Typ‑Patterns enthalten, z.B. `case String s`.
 - `null` kann (und sollte) explizit behandelt werden. Ohne ein `case null`‑Arm verhält sich ein Pattern‑`switch` bei `null` wie das klassische `switch`: Es fliegt eine `NullPointerException`.
 
-
 ---
 
 ## `yield`-Keyword
@@ -175,7 +175,7 @@ int value = switch (greeting) {
 
 ## Guarded Patterns
 
-Oft reicht der Typ allein nicht aus, um zu entscheiden, welche Logik greifen soll. 
+Oft reicht der Typ allein nicht aus, um zu entscheiden, welche Logik greifen soll.
 
 ```java
 static String describeOrder(Order order) {
@@ -193,8 +193,8 @@ Erst wenn der Typ passt **und** die Bedingung erfüllt ist, greift der entsprech
 
 ## Dominanz-Prüfung
 
-* Der Compiler kann nun auf Dominanz achten. 
-* Er verhindert also, dass Sie einen `case`‑Arm schreiben, der nie erreicht werden kann.
+- Der Compiler kann nun auf Dominanz achten.
+- Er verhindert also, dass Sie einen `case`‑Arm schreiben, der nie erreicht werden kann.
 
 ```java
 class Logger {
@@ -213,6 +213,7 @@ class Logger {
 ## Erschöpfende Switches
 
 Pattern Matching mit Switch lässt sich mit `sealed`-Hierarchiven verbinden.
+
 ```java
 sealed interface Notification permits EmailNotification, SmsNotification, PushNotification {}
 record EmailNotification(String address, String text) implements Notification {}

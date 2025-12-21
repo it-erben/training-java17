@@ -22,28 +22,26 @@ img[alt~="center"] {
 In der Collection-API war die Sortierung von Collections bisher nur optional. Es gab daher keine gemeinsamen Methoden,
 die eine Sortierung voraussetzen würden.
 
-|                 | Erstes Element ermitteln | Letztes Element ermitteln    
-|-----------------|--------------------------|------------------------------|
-| `List`          | `list.get(0)`            | `list.get(list.size()-1)`    |
-| `Deque`         | `deque.getFirst()`       | `deque.getLast()`            |
-| `SortedSet`     | `sortedSet.first()`      | `sortedSet.last()`           |
-| `LinkedHashSet` | `lhs.iterator().next()`  | _Keine direkte Entsprechung_ |
+||Erstes Element ermitteln|Letztes Element ermitteln
+|---|---|---
+|`List`|`list.get(0)`|`list.get(list.size()-1)`
+|`Deque`|`deque.getFirst()`|`deque.getLast()`
+|`SortedSet`|`sortedSet.first()`|`sortedSet.last()`
+|`LinkedHashSet`|`lhs.iterator().next()`|_Keine direkte Entsprechung_
 
 ---
 
 ## Klassenhierarchie
 
-![](images/06_Hierarchie.png)
+![Klassenhierarchie](images/06_Hierarchie.png)
 
 ---
-
 
 <style scoped>
 pre {
    font-size: 0.4rem;
 }
 </style>
-
 
 ## SequencedCollection<T>
 
@@ -126,7 +124,6 @@ map.sequencedValues();
 - `getFirst()/getLast()` und die `remove…`-Methoden werfen `NoSuchElementException` bei leeren Collections
 - Keine `peek`-Variante
 - `addFirst()/addLast()` dürfen `UnsupportedOperationException` werfen (z. B. unmodifizierbare Collections)
-
 
 ---
 
