@@ -21,9 +21,9 @@ img[alt~="center"] {
 
 * Records sind eine Sprachfunktion für "Datenklassen"
 * kompakte, shallow‑immutable Klassen mit automatisch generierten
-    * equals, hashCode, toString
-    * Accessor‑Methoden
-    * kanonischen (bzw. kompakten) Konstruktor.
+  * equals, hashCode, toString
+  * Accessor‑Methoden
+  * kanonischen (bzw. kompakten) Konstruktor.
 * Seit JDK 16 final, im LTS JDK 17 alltagstauglich verfügbar.
 
 ---
@@ -74,7 +74,6 @@ public final class Rectangle extends java.lang.Record {
 
 ## Records: Kanonischer Konstruktor
 
-
 Der kanonische Konstruktor entspricht in seiner Parameterliste exakt dem Header und bietet volle Kontrolle – inklusive Normalisierung:
 
 ```java
@@ -108,7 +107,7 @@ public record OrderId(long value) {
 
 ## DTOs, API‑Antworten und Events
 
-* Ein Einsatzbereich für Records sind einfache Datenübertragungsobjekte (DTOs), 
+* Ein Einsatzbereich für Records sind einfache Datenübertragungsobjekte (DTOs),
 * Besonders hilfreich: Bei Erweiterung der Klasse kann man nicht vergessen, equals und hashCode anzupassen.
 
 ```java
@@ -116,14 +115,11 @@ public record UserDto(UUID id, String name) {}
 public record UserCreatedEvent(UserDto user, Instant occurredAt) {}
 ```
 
-
-
 ---
-
 
 ## Konfigurations‑Snapshots
 
-* Häufig sollen Konfigurationen „eingefroren“ und als unveränderliche Sicht weitergereicht werden. 
+* Häufig sollen Konfigurationen „eingefroren“ und als unveränderliche Sicht weitergereicht werden.
 * Records eignen sich hierfür, insbesondere in Kombination mit defensiven Kopien:
 
 ```java
@@ -154,7 +150,6 @@ public record Money(BigDecimal amount, Currency currency) {
 
 ---
 
-
 ## Schlüssel in Maps
 
 Da Records stabile `equals`/`hashCode`‑Implementierungen besitzen, sind sie für zusammengesetzte Schlüssel geeignet:
@@ -168,6 +163,6 @@ Map<Point, String> labels = Map.of(new Point(1, 2), "A");
 
 ## Wann Records nicht die beste Wahl sind
 
-- Persistente Entities in ORMs wie JPA/Hibernate, die Mutabilität, Proxies oder no‑arg‑Konstruktoren erwarten.
-- Reichhaltige Domänenobjekte mit umfangreichem Verhalten und komplexen Invarianten, bei denen der Fokus nicht auf einem reinen Datenzustand liegt.
-- Tiefe, veränderliche Objektgraphen (Listen, Maps, Arrays), bei denen ohne defensive Kopien eine scheinbare „Unveränderlichkeit“ missverständlich wäre.
+* Persistente Entities in ORMs wie JPA/Hibernate, die Mutabilität, Proxies oder no‑arg‑Konstruktoren erwarten.
+* Reichhaltige Domänenobjekte mit umfangreichem Verhalten und komplexen Invarianten, bei denen der Fokus nicht auf einem reinen Datenzustand liegt.
+* Tiefe, veränderliche Objektgraphen (Listen, Maps, Arrays), bei denen ohne defensive Kopien eine scheinbare „Unveränderlichkeit“ missverständlich wäre.

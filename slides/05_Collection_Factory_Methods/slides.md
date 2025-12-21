@@ -24,7 +24,6 @@ pre {
 
 ## Collection Factory Methods
 
-
 Früher war das erstellen von Collections mit einer festen Anzahl an Werten sehr mühselig.
 
 ```java
@@ -50,7 +49,7 @@ Set.of("d", "p", "m", "a")
 List.of("d", "p", "m", "a")
 ```
 
---- 
+---
 
 ## Fallstrick
 
@@ -66,7 +65,7 @@ List.of(null, "d", "p", "m", "a");
 // IllegalArgumentException
 ```
 
---- 
+---
 
 ## Set-Factory Method
 

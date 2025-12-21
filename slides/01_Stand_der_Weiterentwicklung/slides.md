@@ -35,13 +35,14 @@ Das JEP‐Verfahren ist das strukturierte Vorgehen, um neue Features, Refactorin
 
 ![width:550](./images/01_JEP_startpage.png)
 
-[Link](https://openjdk.org/jeps/0)
+[Link zum OpenJDK-JEP 0](https://openjdk.org/jeps/0)
 
 ---
 
 ## JDK Enhancement Proposal (JEP)
 
 Eine JEP beschreibt:
+
 * Motivation und Problemstellung
 * Design‐Ansatz inklusive Diskussion alternativer Ideen
 * Auswirkungen auf Kompatibilität
@@ -64,6 +65,7 @@ Eine JEP beschreibt:
 * Frühzeitig Preview‐ oder Early‐Access‐Builds testen, wenn eine JEP den eigenen Code betrifft.
 
 ---
+
 ## Incubating- vs. Preview-Features
 
 ![center width:700](images/01_Incubating_Preview.drawio.png)

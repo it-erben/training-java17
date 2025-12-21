@@ -140,6 +140,7 @@ blue. \s
 """; 
 // Alle Zeilen sind gleich lang!
 ```
+
 ---
 
 ## Anführungszeichen & Escapes
@@ -161,6 +162,7 @@ pre {
    font-size: 0.4rem;
 }
 </style>
+
 ## Indentierung
 
 Die Einrückung orientiert sich an den terminierenden Anführungszeichen.
@@ -181,6 +183,7 @@ System.out.println("""
     seid ihr auch schon wieder da.
     """);
 ```
+
 ```text
 Guten Morgen, liebe Sorgen,
 seid ihr auch schon wieder da.
@@ -228,7 +231,6 @@ String html = """
 ```
 
 ---
-
 
 ## Weitere neue Methoden (Auswahl)
 

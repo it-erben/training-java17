@@ -3,16 +3,19 @@
 ## Starten
 
 1) Bauen
-```
+
+```text
 mvn package
 ```
 
-2) Bootable JAR starten:
-```
+1) Bootable JAR starten:
+
+```text
 java -jar target/fulfillment-jakarta-0.0.1-SNAPSHOT-bootable.jar
 ```
 
-3) Aufrufen:
+1) Aufrufen:
+
 - REST: `http://localhost:8080/api/orders`, `http://localhost:8080/api/shipments`
 - Admin-UI (JSF): `http://localhost:8080/admin.xhtml`
   - Login: `admin` / `admin123`

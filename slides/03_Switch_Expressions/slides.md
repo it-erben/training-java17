@@ -41,6 +41,7 @@ pre {
    font-size: 0.6rem;
 }
 </style>
+
 ## Bisher
 
 Dies entspricht mit klassischem Switch diesem Beispiel:
@@ -73,6 +74,7 @@ pre {
    font-size: 0.7rem;
 }
 </style>
+
 ## Risiko
 
 Es passiert schnell, das man das _break_ vergisst.
@@ -113,7 +115,7 @@ public String exampleOfSwitch(String animal) {
 }
 ```
 
---- 
+---
 
 ## Yield-Keyword
 
