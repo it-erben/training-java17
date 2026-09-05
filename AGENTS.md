@@ -154,3 +154,8 @@ Ein neues Assignment braucht drei Eintragungen: das Verzeichnis, den
   ist`. Beim Bearbeiten das Schema der jeweiligen Datei fortführen.
 - **Die CI hat eine `deploy`-Stage, aber keinen Job darin.** Es gibt keine
   `training-deploy`-Komponente; dieses Repo wird nicht als Website deployt.
+- **Die CI läuft auf zwei Plattformen.** `.gitlab-ci.yml` bindet die
+  GitLab-Komponenten ein, `.github/workflows/ci.yml` ruft `lint.yml`,
+  `slides.yml`, `maven.yml`, `release.yml` und `pages.yml` aus
+  `it-erben/ci`. Die PDFs gehen
+  dort auf GitHub Pages.
